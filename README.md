@@ -8,5 +8,4 @@
 
 ## By the way, Root Daemons are important ...
 
-A **Root Daemon** refers to a background process (daemon) running with root (administrator) privileges on a Unix/Linux system. 
-Daemons typically handle core system functions and services in the background.
+A **Root Daemon** refers to a background process (daemon) running with root (administrator) privileges on a Unix/Linux system and Daemons typically handle core system functions and services in the background.
