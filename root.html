@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Harshavardhan</title>
+  <!-- Fira Code Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <script src="https://kit.fontawesome.com/a2e0e6ad74.js" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --bg: #1e1e2e;
+      --fg: #cdd6f4;
+      --accent: #cba6f7;
+      --prompt-user: #f5e0dc;
+      --prompt-host: #89b4fa;
+      --prompt-path: #94e2d5;
+      --hover: #b4befe;
+      --font: 'Fira Code', monospace;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      background: linear-gradient(to bottom, #181825, #11111b);
+      color: var(--fg);
+    }
+
+    .stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: var(--fg);
+      border-radius: 50%;
+      opacity: 0.4;
+      animation: twinkle 3s infinite ease-in-out alternate;
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.2; transform: scale(0.8); }
+      to   { opacity: 0.8; transform: scale(1.2); }
+    }
+
+    .content-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .main-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      width: 100%;
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
+      flex-direction: column;
+    }
+
+    .profile-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .profile-pic {
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      object-fit: cover;
+      transition: all 0.4s ease;
+      box-shadow: 0 0 40px rgba(203, 166, 247, 0.15);
+      border: 2px solid rgba(203, 166, 247, 0.2);
+    }
+
+    .text-content {
+      flex: 1;
+      max-width: 700px;
+    }
+
+    .intro-text {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      letter-spacing: 0.3px;
+      text-align: left;
+      font-weight: 400;
+      color: var(--fg);
+      opacity: 0.95;
+    }
+
+    .highlight {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .bottom-icons {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 1.5rem;
+      background: rgba(30, 30, 46, 0.85);
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(203, 166, 247, 0.15);
+      z-index: 2;
+    }
+
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(203, 166, 247, 0.05);
+      color: var(--fg);
+      font-size: 1.4rem;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      border: 1px solid rgba(203, 166, 247, 0.15);
+    }
+
+    .social-icon:hover {
+      background: var(--hover);
+      color: var(--bg);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(180, 190, 254, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .content-wrapper {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+        padding: 1rem;
+      }
+
+      .profile-pic {
+        width: 200px;
+        height: 200px;
+      }
+
+      .intro-text {
+        font-size: 1.1rem;
+        text-align: center;
+      }
+
+      .bottom-icons {
+        gap: 1.2rem;
+        padding: 0.7rem 1.5rem;
+      }
+
+      .social-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 1.2rem;
+      }
+
+      .terminal-prompt {
+        font-size: 0.9rem;
+        left: 0.6rem;
+        right: 0.6rem;
+        top: 0.6rem;
+        padding: 0.4rem 0.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .main-content {
+        padding: 1.5rem 0.8rem;
+      }
+
+      .profile-pic {
+        width: 140px;
+        height: 140px;
+      }
+
+      .intro-text {
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .bottom-icons {
+        padding: 0.6rem 1.2rem;
+      }
+
+      .terminal-prompt {
+        font-size: 0.8rem;
+        left: 0.5rem;
+        right: 0.5rem;
+        top: 0.5rem;
+        padding: 0.3rem 0.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 🌌 Stars Layer -->
+  <div class="stars">
+    <!-- Keep your existing star <span> elements here -->
+  </div>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="content-wrapper">
+      <div class="profile-container">
+        <img src="hv.jpeg" alt="Harshavardhan" class="profile-pic" />
+      </div>
+      <div class="text-content">
+        <p class="intro-text">
+          I'm Harshavardhan, a developer who believes that <span class="highlight">mindset matters more than the language</span>.
+          Programming languages are not barriers; they are tools that serve our creativity and problem-solving abilities.
+          I embrace the philosophy that understanding core principles allows us to adapt to any technology stack seamlessly.
+          <br><br>
+          I'm passionate about <span class="highlight">Linux</span> (Arch, by the way) and <span class="highlight">Vim</span> –
+          tools that embody simplicity and efficiency. Simple, minimal things are my preference because they just work beautifully,
+          much like this website itself.
+          <br><br>
+          When I'm not coding, you'll find me working out, experimenting in the kitchen, playing badminton,
+          or most probably just <span class="highlight">being lazy</span> – sometimes the best solutions come when we step back and think.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social Icons -->
+  <div class="bottom-icons">
+    <a href="https://github.com/TheRootDaemon" target="_blank" aria-label="GitHub" class="social-icon">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="mailto:harshath3018@gmail.com" target="_blank" aria-label="Email" class="social-icon">
+      <i class="fas fa-envelope"></i>
+    </a>
+    <a href="https://www.instagram.com/ilikesaltedpeanuts" target="_blank" aria-label="Instagram" class="social-icon">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/harshavardhan-mv" target="_blank" aria-label="LinkedIn" class="social-icon">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </div>
+
+</body>
+</html>
